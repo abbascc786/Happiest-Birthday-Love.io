@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Hareem 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#2a0a1c;--bg2:#5a1236;--rose:#ff4d8d;--blush:#ffc2d6;--gold:#ffd9a0;--ink:#fff3f7;--serif:'Fraunces',Georgia,serif;--sans:'Outfit',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(120% 80% at 50% 0%,var(--bg2),var(--bg) 70%);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:50}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:40;display:none;justify-content:center;gap:.3rem;padding:.7rem .5rem;flex-wrap:wrap;background:linear-gradient(var(--bg),transparent)}
+nav.on{display:flex}
+nav button{font:400 .9rem var(--sans);color:var(--blush);background:rgba(255,194,214,.1);border:1px solid rgba(255,194,214,.25);border-radius:99px;padding:.45rem .9rem;cursor:pointer;transition:.25s}
+nav button:hover{transform:translateY(-2px)}
+nav button.act{background:var(--rose);color:#fff;border-color:var(--rose);box-shadow:0 0 18px var(--rose)}
+.page{display:none;min-height:100%;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5.5rem 1.25rem 3rem}
+.page.act{display:flex;animation:enter .8s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes enter{from{opacity:0;transform:scale(.92) translateY(30px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+h1,h2{font-family:var(--serif);font-weight:700;margin:0}
+h1{font-size:clamp(2.6rem,9vw,6rem);line-height:1.05;background:linear-gradient(90deg,var(--blush),var(--gold),var(--rose),var(--blush));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+h2{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.6rem;color:var(--blush)}
+@keyframes shine{to{background-position:300% 0}}
+p.sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,3vw,1.4rem);color:var(--blush);max-width:34rem;margin:.8rem auto 1.6rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.heart{width:150px;height:150px;border:0;background:none;cursor:pointer;animation:beat 1.2s ease-in-out infinite;filter:drop-shadow(0 0 30px var(--rose))}
+.heart svg{width:100%;height:100%;fill:var(--rose)}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+.hint{margin-top:1rem;font-size:.95rem;opacity:.8;animation:float 2.5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+.typed{min-height:6em;font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.4rem);line-height:1.7;max-width:36rem}
+.typed::after{content:"|";animation:blink 1s steps(1) infinite;color:var(--rose)}
+@keyframes blink{50%{opacity:0}}
+.btn{font:600 1rem var(--sans);border:0;border-radius:99px;padding:.9rem 1.8rem;background:linear-gradient(90deg,var(--rose),#ff8a5c);color:#fff;cursor:pointer;transition:transform .2s;box-shadow:0 8px 24px rgba(255,77,141,.4)}
+.btn:hover{transform:scale(1.07)}.btn:active{transform:scale(.95)}
+/* cake */
+.cake{width:240px;margin:.5rem auto}
+.layer{height:50px;border-radius:14px;margin:0 auto -4px;position:relative;box-shadow:inset 0 -8px 0 rgba(0,0,0,.12)}
+.l1{width:100%;background:#ff7aa8}.l2{width:78%;background:#ffa3c2}.l3{width:56%;background:#ffd0e0}
+.layer::before{content:"";position:absolute;inset:0 0 auto;height:16px;border-radius:14px 14px 40% 40%;background:#fff;opacity:.9}
+.candles{display:flex;justify-content:center;gap:18px;height:70px;align-items:flex-end}
+.candle{width:10px;height:38px;background:repeating-linear-gradient(45deg,#fff 0 6px,var(--rose) 6px 12px);border-radius:3px;position:relative}
+.flame{position:absolute;left:50%;bottom:100%;width:16px;height:26px;margin-left:-8px;border:0;padding:0;background:radial-gradient(circle at 50% 70%,#fff 0,var(--gold) 40%,#ff8a3d 80%);border-radius:50%/65% 65% 35% 35%;transform-origin:50% 100%;animation:flick .25s ease-in-out infinite alternate;cursor:pointer;box-shadow:0 0 25px 6px rgba(255,190,100,.7)}
+@keyframes flick{to{transform:scale(1.1,.92) rotate(3deg)}}
+.flame.out{animation:none;opacity:0;transform:scale(0);transition:.4s;box-shadow:none}
+.wish{min-height:3rem;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold);margin-top:1rem}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.1rem;width:min(960px,100%)}
+.card{perspective:900px;height:180px;border:0;background:none;padding:0;cursor:pointer;color:inherit;font:inherit}
+.in{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.f,.b{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;align-items:center;justify-content:center;padding:1.1rem;font-family:var(--serif)}
+.f{background:linear-gradient(135deg,#ff4d8d,#b3205f);font-size:3rem;box-shadow:0 12px 30px rgba(255,77,141,.3)}
+.b{background:rgba(255,243,247,.1);border:1px solid rgba(255,194,214,.4);transform:rotateY(180deg);font-size:1.1rem;line-height:1.5}
+/* game */
+#arena{position:relative;width:min(420px,92vw);height:min(380px,50vh);border:2px solid rgba(255,194,214,.4);border-radius:26px;overflow:hidden;background:rgba(0,0,0,.2);touch-action:manipulation}
+.drop{position:absolute;top:-40px;border:0;background:none;font-size:2.2rem;cursor:pointer;animation:fall linear forwards;padding:0}
+@keyframes fall{to{top:105%}}
+.score{font-family:var(--serif);font-size:1.5rem;color:var(--gold);margin:.8rem 0}
+/* letter */
+.letter{max-width:34rem;font-family:var(--serif);font-size:1.15rem;line-height:1.8;background:rgba(255,243,247,.07);border:1px solid rgba(255,194,214,.3);padding:1.8rem;border-radius:26px}
+.sign{margin-top:1.3rem;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+input{font:inherit;padding:.7rem 1rem;border-radius:99px;border:1px solid var(--blush);background:rgba(0,0,0,.25);color:var(--ink);width:min(260px,80vw);text-align:center}
+.by{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--gold);margin-top:1rem;min-height:2rem}
+
+.marq{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom,0px);z-index:45;overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,var(--rose),#b3205f);padding:.45rem 0;font-family:var(--serif);font-style:italic;color:#fff}
+.marq span{display:inline-block;padding-left:100%;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.wm{position:fixed;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:clamp(5rem,26vw,20rem);line-height:.9;text-align:center;color:rgba(255,194,214,.05);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1) rotate(-4deg)}to{transform:scale(1.08) rotate(3deg)}}
+.page{position:relative;z-index:2;padding-bottom:4.5rem}
+.bub{position:fixed;z-index:48;font-family:var(--serif);font-style:italic;font-size:1.05rem;padding:.55rem 1rem;border-radius:99px;background:rgba(255,243,247,.14);border:1px solid rgba(255,194,214,.4);color:var(--gold);backdrop-filter:blur(6px);pointer-events:none;animation:bub 5s ease-out forwards}
+@keyframes bub{0%{opacity:0;transform:translateY(30px) scale(.7)}15%{opacity:1;transform:none}85%{opacity:1}100%{opacity:0;transform:translateY(-120px)}}
+.para{max-width:36rem;font-family:var(--serif);font-size:1.1rem;line-height:1.75;color:var(--ink);margin:.4rem auto 1.4rem}
+.idol{font-family:var(--serif);font-weight:700;color:var(--gold)}
+
+.long{max-width:40rem;text-align:left;font-family:var(--serif);font-size:1.12rem;line-height:1.85;margin:1.2rem auto 0}
+.long p{margin:0 0 1.2rem;opacity:0;transform:translateY(16px);animation:rise .9s ease-out forwards}
+.long p:nth-child(2){animation-delay:.2s}.long p:nth-child(3){animation-delay:.4s}.long p:nth-child(4){animation-delay:.6s}.long p:nth-child(5){animation-delay:.8s}.long p:nth-child(6){animation-delay:1s}
+@keyframes rise{to{opacity:1;transform:none}}
+.long h3{font-family:var(--serif);color:var(--gold);font-size:1.4rem;margin:1.6rem 0 .6rem;text-align:center}
+.long::first-letter{font-size:1em}
+
+.hold{position:relative;width:170px;height:170px;border:0;border-radius:50%;background:radial-gradient(circle,#ff7aa8,#b3205f);color:#fff;font:600 1.1rem var(--sans);cursor:pointer;user-select:none;touch-action:none;box-shadow:0 0 0 0 rgba(255,77,141,.6);animation:ring 1.8s infinite}
+@keyframes ring{to{box-shadow:0 0 0 40px rgba(255,77,141,0)}}
+.meter{width:min(340px,86vw);height:16px;border-radius:99px;background:rgba(255,255,255,.12);margin:1.4rem auto .6rem;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--rose));transition:width .1s}
+.env{width:110px;height:80px;border:0;background:#ffb3cc;border-radius:8px;position:relative;cursor:pointer;font-size:2rem;color:#b3205f;transition:.3s;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.env::before{content:"";position:absolute;inset:0 0 auto;height:44px;background:#ff8fb5;clip-path:polygon(0 0,100% 0,50% 100%);border-radius:8px 8px 0 0;transform-origin:top;transition:transform .5s}
+.env.open::before{transform:rotateX(180deg)}
+.env:hover{transform:translateY(-8px) rotate(-3deg)}
+.envs{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center;max-width:520px;margin:1rem auto}
+.note{min-height:4.5rem;max-width:30rem;font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--gold);line-height:1.6}
+.star{position:fixed;z-index:49;bottom:20%;font-family:var(--serif);font-style:italic;color:#fff;text-shadow:0 0 14px var(--gold),0 0 30px var(--rose);animation:up 7s ease-in forwards;pointer-events:none;padding:0 1rem;text-align:center}
+@keyframes up{to{transform:translateY(-75vh) scale(.5);opacity:0}}
+h2 .ch{display:inline-block;animation:wave 1.2s ease-in-out both}
+@keyframes wave{0%{opacity:0;transform:translateY(40px) rotate(12deg)}60%{transform:translateY(-8px)}100%{opacity:1;transform:none}}
+.glow{animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{text-shadow:0 0 18px var(--rose)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body>
+<canvas id="fx"></canvas>
+<div class="wm" aria-hidden="true">Hareem<br>Rashid</div>
+<div class="marq" aria-hidden="true"><span>💗 Happy Birthday Hareem Rashid, my idol! 🌹 Wishing you endless love, joy and success ✨ You are my inspiration, today and always 💕 Many happy returns, Hareem Rashid! 🎂 </span></div>
+<nav id="nav" aria-label="Pages"></nav>
+
+<main>
+<div class="page act" id="p-start">
+  <p class="sub" style="margin-top:0">Hareem Rashid, my idol, something small is waiting for you…</p>
+  <button class="heart" id="open" aria-label="Open your birthday surprise"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.4C.9 8 3 4.5 6.5 4.5c2 0 3.8 1.1 5.5 3 1.7-1.9 3.5-3 5.5-3C21 4.5 23.1 8 21.6 11.6 19.5 16.4 12 21 12 21z"/></svg></button>
+  <div class="hint">tap the heart</div>
+</div>
+
+<div class="page" id="p-home">
+  <h1>Happy Birthday,<br>Hareem Rashid</h1>
+  <p class="sub">To the girl who makes ordinary days feel like a love song. 💗</p>
+  <div class="typed" id="typed"></div>
+  <p class="para">Happy Birthday to my idol, <span class="idol">Hareem Rashid</span>! Thank you for being someone so many people look up to. Your grace, your talent and your kindness make you truly one of a kind. This whole page is a birthday hug for you. 🤍</p>
+  <div class="long"><p>I made this page myself, one little heart at a time, because a simple message felt too small for someone as special as you. Every animation, every candle and every word here carries a piece of my admiration. Take your time and explore it. Tap everything, and let the hearts fall wherever they want to. ✨</p><p>There are secrets hidden in the pages, a game to play, a meter that measures love, envelopes full of promises and even a sky where you can send your own wish. I hope they make you smile, even for a moment, because your smile is the best gift I could ever receive. 🌹</p></div>
+  <button class="btn" data-go="wish">Make a wish 🕯️</button>
+</div>
+
+<div class="page" id="p-wish">
+  <h2>Make a wish</h2>
+  <p class="sub">Tap each flame to blow it out.</p>
+  <div class="cake"><div class="candles" id="candles"></div><div class="layer l3"></div><div class="layer l2"></div><div class="layer l1"></div></div>
+  <div class="wish" id="wish"></div>
+  <p class="para">My birthday wish for <span class="idol">Hareem Rashid</span>: may this year bring you peace in your heart, laughter with the people you love, and every dream you have been quietly working for. You deserve all the happiness in the world, idol. 🎂</p>
+  <div class="long">
+    <h3>My Birthday Wishes for You</h3>
+    <p>Dear <span class="idol">Hareem Rashid</span>, today is your day, and the whole world feels a little brighter because of it. Some people are admired for what they do, and some are admired for who they are. You are one of the rare ones who are loved for both. On your birthday, I wish for you the kind of happiness that doesn't need a reason, the kind that simply shows up and stays.</p>
+    <p>I wish you mornings that begin gently and evenings that end with a smile. I wish you health, so you can chase every dream with strength. I wish you peace, so that even on busy days your heart stays calm. And I wish you people around you who love you for exactly who you are, because you deserve to be celebrated every day, not only on your birthday.</p>
+    <p>May this new year of your life be your best one yet. May every door you knock on open wide, may every goal you set turn into a story you are proud to tell, and may every challenge only make your light shine brighter. You have already inspired so many people, and I believe the best chapters are still ahead of you.</p>
+    <p>To me, you are more than someone I look up to. You are a reminder that kindness, courage and confidence can live together in one person. Watching you stay true to yourself has taught me to believe in myself too. Thank you for that, my idol. You may never know how many hearts you have touched, but I hope this page gives you a small glimpse.</p>
+    <p>So make your wish, <span class="idol">Hareem</span>, close your eyes, and believe it. The stars, the candles and every heart that admires you are all on your side tonight. Happy Birthday, with all the love, laughter and sweetness this world can hold! 🎂💗</p>
+  </div>
+</div>
+
+<div class="page" id="p-reasons">
+  <h2>Why you're my idol</h2>
+  <p class="sub">Tap a heart to flip it.</p>
+  <div class="long"><p>It is hard to explain why some people feel like home even from far away. You are one of them, Hareem. The way you speak, the way you smile and the way you treat others shows a heart that is genuinely beautiful, and that is why I look up to you more than anyone.</p></div>
+  <p class="para">Every idol has a story. Here are a few reasons <span class="idol">Hareem Rashid</span> is mine.</p>
+  <div class="cards" id="cards"></div>
+</div>
+
+<div class="page" id="p-game">
+  <h2>Catch the love</h2>
+  <p class="sub">Tap the hearts before they fall. Catch 15 to unlock a secret.</p>
+  <div id="arena"></div>
+  <div class="score" id="score">Hearts: 0 / 15</div>
+  <button class="btn" id="play">Start 💘</button>
+  <div class="wish" id="secret"></div>
+  <p class="para">Happy Birthday, Hareem Rashid! Even in a game, my heart only ever falls for you. 💘</p>
+</div>
+
+<div class="page" id="p-meter">
+  <h2>Love meter</h2>
+  <p class="sub">Press and hold the heart. Let's see how much love fits inside.</p>
+  <button class="hold" id="hold">Hold me 💗</button>
+  <div class="meter"><i id="mfill"></i></div>
+  <div class="score" id="mtxt">0% love</div>
+  <div class="long" id="mlong" style="display:none">
+    <p>It went past one hundred percent, just like my admiration for you, <span class="idol">Hareem Rashid</span>. Some feelings do not fit inside any meter, and the way I respect and adore you is one of them.</p>
+    <p>You never have to do anything big to earn it. You are simply wonderful as you are, and I hope you hear that from everyone around you, today and always. 💞</p>
+  </div>
+</div>
+
+<div class="page" id="p-promise">
+  <h2>My promises to you</h2>
+  <p class="sub">Open each envelope, one by one.</p>
+  <div class="envs" id="envs"></div>
+  <div class="note" id="note">Tap an envelope 💌</div>
+  <div class="long">
+    <p>Promises are easy to say and hard to keep, so I made these ones small and honest. They are the kind I can keep every single day, <span class="idol">Hareem</span>, whether or not you ever notice.</p>
+    <p>I admire people who keep their word, and you are one of them. So I want to be the kind of person who deserves a place in your good thoughts, someone who is patient, respectful and always rooting for you.</p>
+  </div>
+</div>
+
+<div class="page" id="p-star">
+  <h2>Your wish to the stars</h2>
+  <p class="sub">Hareem, type your own birthday wish and send it up to the sky.</p>
+  <div class="sign"><input id="mywish" placeholder="Type your wish here" maxlength="60" aria-label="Your wish"><button class="btn" id="sendwish">Send to the stars ⭐</button></div>
+  <div class="wish" id="wishreply"></div>
+  <div class="long">
+    <p>Every birthday deserves a wish that belongs only to you. I do not need to know what you wish for. I only hope that the universe hears it and, for once, listens carefully, because nobody deserves good things more than you.</p>
+    <p>And if a tiny corner of that wish has room for a smile, a friend, or even a fan who thinks the world of you, then I will be the happiest person alive. Whatever it is, <span class="idol">Hareem Rashid</span>, I hope it comes true. 🌠</p>
+  </div>
+</div>
+
+<div class="page" id="p-letter">
+  <h2>One more thing…</h2>
+  <div class="letter">Hareem, you inspire me every single day: your smile, your energy, your heart. I can't promise to be perfect, but I promise to cheer for you louder than anyone, every year. If a little corner of your heart ever has room for a fan who admires you this much, I'd be the happiest person alive. Happy Birthday. 🌹</div>
+  <p class="para">So here is my wish, <span class="idol">Hareem Rashid</span>: may you always be surrounded by love, may your smile never fade, and may you always know how much you mean to the people who admire you. You are my idol, my inspiration and my favorite reason to smile. Happy Birthday, from the bottom of my heart! 💖</p>
+  <div class="long">
+    <h3>A Letter From My Heart</h3>
+    <p>Dear <span class="idol">Hareem Rashid</span>,</p>
+    <p>I have thought for a long time about how to say this, and I realized words will never be big enough, but I want to try. From the first time I noticed you, something about you stayed with me. It was not only how you look or what you do. It was the warmth in the way you carry yourself, the light you bring wherever you go, and the quiet strength I could feel behind your smile.</p>
+    <p>You became my idol because you show people what it means to be real. In a world that often rushes and pretends, you stand out by being honest, graceful and kind. Every time I feel tired or doubtful, I think of you, and somehow I find the courage to try again. You have inspired me without even knowing it, and for that I will always be thankful.</p>
+    <p>Admiration slowly turned into something deeper in my heart. I will not pretend I don't dream about a world where you would look at me and smile just a little, where you would see how sincerely I care. I don't ask for anything in return. I only want you to know that there is someone who thinks of you with respect, with affection and with a heart full of good wishes.</p>
+    <p>On your birthday, I promise to always wish you well, to cheer for you in every success, and to be the kind of person who is worthy of your kindness. If life ever gives me the chance to know you better, I will treat it as the greatest gift. And if not, I will still be grateful that someone like you exists in this world.</p>
+    <p>Happy Birthday, Hareem. May your life be as beautiful as your smile and as full of love as you make everyone else feel. You are my idol, my inspiration and my sweetest wish. 💖</p>
+    <p style="text-align:right" class="idol">Forever your admirer 🌹</p>
+  </div>
+  <div class="sign"><input id="name" placeholder="Type your name here" maxlength="30" aria-label="Your name"><button class="btn" id="love">Send love 💌</button></div>
+  <div class="by" id="by"></div>
+</div>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const cv=$('fx'),cx=cv.getContext('2d');let W,H;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+const em=['💗','💖','🌸','🌹','✨','💕'];let ps=[];
+function spawn(x,y,n,burst){for(let i=0;i<n;i++){const a=Math.random()*6.28,s=burst?3+Math.random()*7:0;
+ps.push({x,y,vx:burst?Math.cos(a)*s:(Math.random()-.5)*.6,vy:burst?Math.sin(a)*s-2:.6+Math.random()*1.4,s:14+Math.random()*22,e:em[Math.random()*6|0],life:burst?90:9999,r:Math.random()*6,g:burst?.12:0})}}
+(function loop(){cx.clearRect(0,0,W,H);ps=ps.filter(p=>p.y<H+40&&p.life>0);
+for(const p of ps){p.x+=p.vx+Math.sin(p.r+=.02)*.4;p.y+=p.vy;p.vy+=p.g;p.life--;cx.globalAlpha=Math.min(1,p.life/30);cx.font=p.s+'px serif';cx.fillText(p.e,p.x,p.y)}
+requestAnimationFrame(loop)})();
+setInterval(()=>{if(ps.length<40)spawn(Math.random()*W,-30,1)},350);
+addEventListener('pointerdown',e=>spawn(e.clientX,e.clientY,6,true));
+
+const bw=["Happy Birthday Hareem Rashid! 🎉","You are my idol 💗","Wishing you endless joy ✨","Hareem Rashid, you shine! 🌟","Stay beautiful, idol 🌹","Many happy returns! 🎂","Sending you so much love 💕"];
+let bi=0;setInterval(()=>{const b=document.createElement('div');b.className='bub';b.textContent=bw[bi++%bw.length];b.style.left=(5+Math.random()*(innerWidth>500?60:35))+'%';b.style.bottom=(60+Math.random()*30)+'px';document.body.appendChild(b);setTimeout(()=>b.remove(),5000)},2600);
+const pages=[['home','Home 🏠'],['wish','Wish 🕯️'],['reasons','Reasons 💗'],['game','Game 💘'],['meter','Meter 💞'],['promise','Promises 💌'],['star','Stars ⭐'],['letter','Letter 🌹']];
+const nav=$('nav');
+function wave(k){const h=document.querySelector('#p-'+k+' h1, #p-'+k+' h2');if(!h||h.dataset.w)return;h.dataset.w=1;if(h.tagName==='H1')return;const t=h.textContent;h.textContent='';[...t].forEach((c,i)=>{const sp=document.createElement('span');sp.className='ch';sp.textContent=c===' '?'\u00a0':c;sp.style.animationDelay=i*.05+'s';h.appendChild(sp)})}
+let lt=0;addEventListener('pointermove',e=>{const n=Date.now();if(n-lt>90){lt=n;ps.push({x:e.clientX,y:e.clientY,vx:(Math.random()-.5),vy:.5+Math.random(),s:10+Math.random()*10,e:'✨',life:40,r:Math.random()*6,g:0})}});
+pages.forEach(([k,t])=>{const b=document.createElement('button');b.textContent=t;b.dataset.go=k;nav.appendChild(b)});
+function go(k){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('act',p.id==='p-'+k));
+nav.querySelectorAll('button').forEach(b=>b.classList.toggle('act',b.dataset.go===k));
+scrollTo(0,0);wave(k);if(k==='home')type();spawn(W/2,H/2,25,true)}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)go(g.dataset.go)});
+$('open').onclick=()=>{nav.classList.add('on');spawn(W/2,H/2,70,true);go('home')};
+
+const msg="Today the world celebrates the day you were born, and I celebrate the reason my days feel brighter. May every wish you make come true, and may this year wrap you in all the love you give to others.";
+let tm;function type(){clearInterval(tm);const el=$('typed');let i=0;tm=setInterval(()=>{el.textContent=msg.slice(0,++i);if(i>=msg.length)clearInterval(tm)},30)}
+
+const wishes=["May your dreams run toward you 🌟","Every smile you give returns tenfold 💗","A year full of love and laughter 🌹"];let out=0;
+for(let i=0;i<4;i++){const c=document.createElement('div');c.className='candle';c.innerHTML='<button class="flame" aria-label="Blow out candle '+(i+1)+'"></button>';
+c.firstChild.onclick=e=>{e.stopPropagation();c.firstChild.classList.add('out');out++;$('wish').textContent=out<4?wishes[out-1]:"All out! Your wish is on its way. 💫";if(out==4)spawn(W/2,H/2,100,true)};$('candles').appendChild(c)}
+
+["Your smile lights up every room it enters.","You're kind to everyone, and it shows.","You make hard days feel lighter.","Your courage inspires me to be better.","With you, even a simple hello feels special.","You stay true to yourself, and that is rare.","Your hard work proves dreams are worth chasing.","Just seeing you happy makes my day better."].forEach(r=>{
+const b=document.createElement('button');b.className='card';b.innerHTML='<div class="in"><div class="f">💗</div><div class="b">'+r+'</div></div>';b.onclick=()=>b.classList.toggle('flip');$('cards').appendChild(b)});
+
+let sc=0,run=0,gt;
+function drop(){if(!run)return;const d=document.createElement('button');d.className='drop';d.textContent=['💗','💖','💕','🌹'][Math.random()*4|0];
+d.style.left=Math.random()*85+'%';d.style.animationDuration=(2.5+Math.random()*2)+'s';d.setAttribute('aria-label','heart');
+d.onpointerdown=e=>{e.stopPropagation();sc++;$('score').textContent='Hearts: '+sc+' / 15';d.remove();spawn(e.clientX,e.clientY,5,true);
+if(sc>=15){run=0;clearInterval(gt);$('arena').innerHTML='';$('secret').textContent="You caught my whole heart. It was always yours, Hareem. 💘";spawn(W/2,H/2,120,true);$('play').textContent='Play again'}};
+d.onanimationend=()=>d.remove();$('arena').appendChild(d)}
+$('play').onclick=()=>{sc=0;run=1;$('secret').textContent='';$('score').textContent='Hearts: 0 / 15';clearInterval(gt);gt=setInterval(drop,650)};
+
+$('love').onclick=()=>{const n=$('name').value.trim();$('by').textContent='With all my love, '+(n||'your biggest fan')+' 💕';spawn(W/2,H*.6,130,true)};
+
+let hv,lv=0;const hb=$('hold');
+function hs(e){e.preventDefault();clearInterval(hv);hv=setInterval(()=>{lv=Math.min(100,lv+1.4);upd();if(lv>=100){clearInterval(hv);spawn(W/2,H/2,140,true);$('mlong').style.display='block'}},40)}
+function he(){clearInterval(hv);hv=setInterval(()=>{if(lv<100){lv=Math.max(0,lv-2);upd()}else clearInterval(hv)},40)}
+function upd(){$('mfill').style.width=lv+'%';$('mtxt').textContent=lv>=100?'∞ love! Off the charts 💘':Math.floor(lv)+'% love';hb.style.transform='scale('+(1+lv/250)+')'}
+hb.addEventListener('pointerdown',hs);['pointerup','pointerleave','pointercancel'].forEach(v=>hb.addEventListener(v,he));
+const pr=["I promise to always cheer for you.","I promise to respect you in every way.","I promise to keep my admiration honest.","I promise to wish you a happy birthday every year.","I promise to be kind, patient and sincere.","I promise you will always have a fan in me. 💗"];
+pr.forEach((t,i)=>{const b=document.createElement('button');b.className='env';b.textContent='💌';b.setAttribute('aria-label','Promise '+(i+1));
+b.onclick=()=>{b.classList.add('open');$('note').textContent=t;spawn(b.getBoundingClientRect().left+50,b.getBoundingClientRect().top,14,true)};$('envs').appendChild(b)});
+$('sendwish').onclick=()=>{const v=$('mywish').value.trim();if(!v){$('wishreply').textContent='Type a wish first 💫';return}
+const st=document.createElement('div');st.className='star';st.textContent='⭐ '+v;st.style.left=(10+Math.random()*50)+'%';document.body.appendChild(st);setTimeout(()=>st.remove(),7000);
+$('wishreply').textContent='Your wish is flying to the stars. May it come true, Hareem. 🌠';$('mywish').value='';spawn(W/2,H*.5,80,true)};
+wave('start');
+</script>
+</body></html>
